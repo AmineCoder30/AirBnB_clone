@@ -18,8 +18,8 @@ class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
     prompt = "(hbnb) "
     func_list = ['create', 'show', 'update', 'all', 'destroy', 'count']
-    classes_list =
-    ['BaseModel', 'User', 'Amenity', 'Place', 'City', 'State', 'Review']
+    classes_list = ['BaseModel', 'User', 'Amenity',
+            'Place', 'City', 'State', 'Review']
 
     def precmd(self, arg):
         """parses command input"""
