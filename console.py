@@ -13,12 +13,13 @@ from models.place import Place
 import shlex
 import json
 
+
 class HBNBCommand(cmd.Cmd):
     """Simple command processor example."""
     prompt = "(hbnb) "
     func_list = ['create', 'show', 'update', 'all', 'destroy', 'count']
-    classes_list = ['BaseModel', 'User', 'Amenity',
-                 'Place', 'City', 'State', 'Review']
+    classes_list =
+    ['BaseModel', 'User', 'Amenity', 'Place', 'City', 'State', 'Review']
 
     def precmd(self, arg):
         """parses command input"""
@@ -26,7 +27,9 @@ class HBNBCommand(cmd.Cmd):
             cls = arg.split('.')
             cnd = cls[1].split('(')
             args = cnd[1].split(')')
-            if cls[0] in HBNBCommand.classes_list and cnd[0] in HBNBCommand.func_list:
+            hb_cl_lisr = HBNBCommand.classes_list
+            hbfunclist = HBNBCommand.func_list
+            if cls[0] in hb_cl_lisr and cnd[0] in hbfunclist:
                 arg = cnd[0] + ' ' + cls[0] + ' ' + args[0]
         return arg
 
@@ -171,6 +174,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         """ function to exit the command interpreter """
         return True
-    
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
