@@ -7,7 +7,6 @@ import json
 import os
 
 
-
 class FileStorage:
 
     __file_path = "file.json"
@@ -15,7 +14,7 @@ class FileStorage:
 
     def all(self):
         return FileStorage.__objects
-    
+
     def new(self, obj):
         k = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects[k] = obj
@@ -38,13 +37,11 @@ class FileStorage:
         from models.amenity import Amenity
         from models.state import State
         from models.review import Review
-        dct = {'BaseModel': BaseModel,
-                'User':User,
-                'Place': Place,
-                'City': City, 
-                'Amenity': Amenity, 
-                'State': State,
-                'Review': Review}
+        dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
+               'City': City,
+               'Amenity': Amenity,
+               'State': State,
+               'Review': Review}
         if os.path.exists(FileStorage.__file_path) is True:
             with open(FileStorage.__file_path, 'r') as fl:
                 for k, v in json.load(fl).items():

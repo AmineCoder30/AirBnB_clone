@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
     func_list = ['create', 'show', 'update', 'all', 'destroy', 'count']
     classes_list = ['BaseModel', 'User', 'Amenity',
-            'Place', 'City', 'State', 'Review']
+                    'Place', 'City', 'State', 'Review']
 
     def precmd(self, arg):
         """parses command input"""
