@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 """
 class for serializion of instances to a JSON file
 and the deserializion of JSON file to instances:
