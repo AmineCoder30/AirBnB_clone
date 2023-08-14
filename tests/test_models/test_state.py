@@ -11,7 +11,6 @@ class TestState(unittest.TestCase):
     """state class test"""
 
     a = State()
-    
 
     def test_A_1(self):
         """check if state exist"""
@@ -40,6 +39,7 @@ class TestState(unittest.TestCase):
         self.assertTrue(type(b.id), str)
         self.assertTrue(type(b.created_at), d)
         self.assertTrue(type(b.updated_at), d)
+
 
 if __name__ == '__main__':
     unittest.main()

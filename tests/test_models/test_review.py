@@ -11,7 +11,6 @@ class TestReview(unittest.TestCase):
     """review class test"""
 
     a = Review()
-    
 
     def test_A_1(self):
         """check if review exist"""
@@ -44,6 +43,7 @@ class TestReview(unittest.TestCase):
         self.assertTrue(type(b.text), str)
         self.assertTrue(type(b.created_at), d)
         self.assertTrue(type(b.updated_at), d)
+
 
 if __name__ == '__main__':
     unittest.main()

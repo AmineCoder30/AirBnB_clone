@@ -11,7 +11,6 @@ class TestUser(unittest.TestCase):
     """user class test"""
 
     a = User()
-    
 
     def test_A_1(self):
         """check if user exist"""
@@ -46,6 +45,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(type(b.id), str)
         self.assertTrue(type(b.created_at), d)
         self.assertTrue(type(b.updated_at), d)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,7 +11,6 @@ class TestCity(unittest.TestCase):
     """city class test"""
 
     a = City()
-    
 
     def test_A_2(self):
         """check if city exist"""
@@ -42,6 +41,7 @@ class TestCity(unittest.TestCase):
         self.assertTrue(type(b.id), str)
         self.assertTrue(type(b.created_at), d)
         self.assertTrue(type(b.updated_at), d)
+
 
 if __name__ == '__main__':
     unittest.main()

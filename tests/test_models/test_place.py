@@ -11,7 +11,6 @@ class TestPlace(unittest.TestCase):
     """place class test"""
 
     a = Place()
-    
 
     def test_A_3(self):
         """check if place exist"""
@@ -59,6 +58,7 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(type(b.amenity_ids), list)
         self.assertTrue(type(b.created_at), d)
         self.assertTrue(type(b.updated_at), d)
+
 
 if __name__ == '__main__':
     unittest.main()
