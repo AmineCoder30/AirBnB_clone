@@ -20,40 +20,44 @@ class BaseModel:
             storage.new(self)
         else:
             f = "%Y-%m-%dT%H:%M:%S.%f"
-            for key, value in kwargs.items():
-                if key == 'created_at' or key == 'updated_at':
-                    value = datetime.strptime(kwargs[key], f)
-                if key != '__class__':
-                    setattr(self, key, value)
+            for k, value in kwargs.items():
+                if k == 'created_at' or k == 'updated_at':
+                    value = datetime.strptime(kwargs[k], f)
+                if k != '__class__':
+                    setattr(self, k, value)
 
     def __str__(self):
         """returns class name, id and attribute dictionary
         """
-        class_name = "[" + self.__class__.__name__ + "]"
-        dct = {k: v for (k, v) in self.__dict__.items() if (not v) is False}
-        return class_name + " (" + self.id + ") " + str(dct)
+        clsName = self.__class__.__name__
+        nmCls = "[" + clsName + "]"
+        dicItem = self.__dict__.items()
+        dct = {k: v for (k, v) in dicItem if (not v) is False}
+        return nmCls + " (" + self.id + ") " + str(dct)
 
     def save(self):
-        """updates last update time
+        """change the update time to the current
+        time
         """
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        """creates a new dictionary, adding a key and returning
+        """creates a new dictionary, adding a k and returning
         datemtimes converted to strings
         """
-        new_dict = {}
-
-        for key, values in self.__dict__.items():
-            if key == "created_at" or key == "updated_at":
-                new_dict[key] = values.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        nWDic = {}
+        clsName = self.__class__.__name__
+        dicItem = self.__dict__.items()
+        frmt = "%Y-%m-%dT%H:%M:%S.%f"
+        for k, v in dicItem:
+            if k == "created_at" or k == "updated_at":
+                nWDic[k] = v.strftime(frmt)
             else:
-                if not values:
+                if not v:
                     pass
                 else:
-                    new_dict[key] = values
-        new_dict['__class__'] = self.__class__.__name__
+                    nWDic[k] = v
+        nWDic['__class__'] = clsName
 
-        return new_dict
-
+        return nWDic
