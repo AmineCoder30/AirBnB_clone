@@ -12,7 +12,7 @@ class FileStorageTests(unittest.TestCase):
     """ Suite of File Storage Tests """
 
     my_model = BaseModel()
-    
+
     def test_A(self):
         """ Check instance """
         self.assertIsInstance(storage, FileStorage)
@@ -105,6 +105,6 @@ class FileStorageTests(unittest.TestCase):
         for k in new:
             self.assertEqual(varOne[k], new[k])
 
+
 if __name__ == '__main__':
     unittest.main()
-
