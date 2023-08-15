@@ -61,3 +61,4 @@ class BaseModel:
         nWDic['__class__'] = clsName
 
         return nWDic
+
